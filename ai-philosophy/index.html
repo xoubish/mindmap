@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#000000" />
+<title>AI & Philosophy</title>
+<meta name="description" content="Selected talks, essays, and resources at the intersection of AI and philosophy." />
+<style>
+  :root {
+    --bg:#000; --fg:#fff; --muted:#bbb; --card:#0a0a0a; --stroke:#222;
+    --pad: clamp(14px, 3vw, 28px);
+    --title: clamp(24px, 5vw, 44px);
+    --h3: clamp(16px, 3.2vw, 20px);
+    --body: clamp(13px, 2.6vw, 16px);
+    --tag: clamp(11px, 2.4vw, 13px);
+  }
+  html, body { background: var(--bg); color: var(--fg); margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; }
+  .container { max-width: 1000px; margin: 0 auto; padding: var(--pad); }
+  header { text-align: center; margin: 22px 0 10px; }
+  header h1 { font-size: var(--title); font-weight: 600; margin: 0 0 6px; }
+  header p  { color: var(--muted); font-size: var(--body); margin: 6px 0 0; }
+
+  .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 16px 0 18px; }
+  .back { text-decoration: none; color: #fff; border: 1px solid #fff; padding: 8px 12px; border-radius: 10px; }
+  .count { color: var(--muted); font-size: var(--body); }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+  }
+  .card {
+    display: block;
+    background: var(--card);
+    border: 1px solid var(--stroke);
+    border-radius: 16px;
+    padding: 14px 14px 12px;
+    text-decoration: none;
+    color: var(--fg);
+    transition: transform .12s ease, border-color .12s ease;
+  }
+  .card:hover { transform: translateY(-1px); border-color: #444; }
+  .meta { display:flex; gap:10px; align-items:center; color: var(--muted); font-size: var(--tag); margin-bottom: 6px; }
+  .dot { width:6px; height:6px; border-radius:50%; background:#666; display:inline-block; }
+  h3 { font-size: var(--h3); margin: 4px 0 6px; }
+  p.desc { color: var(--muted); font-size: var(--body); margin: 0 0 8px; line-height: 1.5; }
+  .tags { display:flex; flex-wrap: wrap; gap:6px; }
+  .tag { border: 1px solid #333; color:#ddd; padding: 3px 8px; border-radius: 999px; font-size: var(--tag); }
+
+  @media (max-width: 600px) {
+    .grid { gap: 10px; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>AI & Philosophy</h1>
+      <p>Talks, essays, and references on meaning and minds.</p>
+    </header>
+
+    <div class="toolbar">
+      <!-- Back to your map; "../" works for project sites -->
+      <a class="back" href="../">← Back to the map</a>
+      <div class="count" id="count"></div>
+    </div>
+
+    <!-- Link cards -->
+    <div class="grid" id="links">
+    
+        <!-- Google Slides talk -->
+      <a class="card" href="https://docs.google.com/presentation/d/1N07IUGc6YJopTWUFEDC4fP81UqrvEvEFsitPyWVIenU/edit?usp=sharing" target="_blank" rel="noopener">
+        <div class="meta"><span>docs.google.com</span><span class="dot"></span><span>Slides</span></div>
+        <h3>Talk: The Black Boxes</h3>
+        <p class="desc">On Intelligence</p>
+        <div class="tags">
+          <span class="tag">AI</span>
+          <span class="tag">Intelligence</span>
+        </div>
+      </a>
+        
+      <!-- LinkedIn article -->
+      <a class="card" href="https://www.linkedin.com/pulse/field-theory-meaning-shoubaneh-hemmati-jq6dc/?trackingId=XVPQ4j51TaeH0YTaOf3MNg%3D%3D" target="_blank" rel="noopener">
+        <div class="meta"><span>linkedin.com</span><span class="dot"></span><span>Essay</span></div>
+        <h3>Field Theory of Meaning</h3>
+        <p class="desc">An analogy extended maybe too far in a conversation with AI.</p>
+        <div class="tags">
+          <span class="tag">Embeddings</span>
+          <span class="tag">LLMs</span>
+        </div>
+      </a>
+
+      <a class="card" href="https://docs.google.com/presentation/d/1yq-BPzjyNREl0nQPpeEVZfNSZObu23W0VS68r3FqEiE/edit?usp=sharing" target="_blank" rel="noopener">
+        <div class="meta"><span>drive.google.com</span><span class="dot"></span><span>Slides</span></div>
+        <h3>How I learned to Stop Worrying and Love the Embedding</h3>
+        <p class="desc">A short talk on manifolds</p>
+        <div class="tags">
+          <span class="tag">embedding</span>
+          <span class="tag">manifold</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+<script>
+  // Show a simple count of items
+  const grid = document.getElementById('links');
+  const count = document.getElementById('count');
+  if (grid && count) count.textContent = grid.querySelectorAll('.card').length + " items";
+</script>
+</body>
+</html>
