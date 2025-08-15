@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#000000" />
+<title>Deep Learning</title>
+<meta name="description" content="Selected Projects using DL" />
+<style>
+  :root {
+    --bg:#000; --fg:#fff; --muted:#bbb; --card:#0a0a0a; --stroke:#222;
+    --pad: clamp(14px, 3vw, 28px);
+    --title: clamp(24px, 5vw, 44px);
+    --h3: clamp(16px, 3.2vw, 20px);
+    --body: clamp(13px, 2.6vw, 16px);
+    --tag: clamp(11px, 2.4vw, 13px);
+  }
+  html, body { background: var(--bg); color: var(--fg); margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; }
+  .container { max-width: 1000px; margin: 0 auto; padding: var(--pad); }
+  header { text-align: center; margin: 22px 0 10px; }
+  header h1 { font-size: var(--title); font-weight: 600; margin: 0 0 6px; }
+  header p  { color: var(--muted); font-size: var(--body); margin: 6px 0 0; }
+
+  .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 16px 0 18px; }
+  .back { text-decoration: none; color: #fff; border: 1px solid #fff; padding: 8px 12px; border-radius: 10px; }
+  .count { color: var(--muted); font-size: var(--body); }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+  }
+  .card {
+    display: block;
+    background: var(--card);
+    border: 1px solid var(--stroke);
+    border-radius: 16px;
+    padding: 14px 14px 12px;
+    text-decoration: none;
+    color: var(--fg);
+    transition: transform .12s ease, border-color .12s ease;
+  }
+  .card:hover { transform: translateY(-1px); border-color: #444; }
+  .meta { display:flex; gap:10px; align-items:center; color: var(--muted); font-size: var(--tag); margin-bottom: 6px; }
+  .dot { width:6px; height:6px; border-radius:50%; background:#666; display:inline-block; }
+  h3 { font-size: var(--h3); margin: 4px 0 6px; }
+  p.desc { color: var(--muted); font-size: var(--body); margin: 0 0 8px; line-height: 1.5; }
+  .tags { display:flex; flex-wrap: wrap; gap:6px; }
+  .tag { border: 1px solid #333; color:#ddd; padding: 3px 8px; border-radius: 999px; font-size: var(--tag); }
+
+  @media (max-width: 600px) {
+    .grid { gap: 10px; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Deep Learning Projects</h1>
+      <p>Published and ongoing research</p>
+    </header>
+
+    <div class="toolbar">
+      <!-- Back to your map; "../" works for project sites -->
+      <a class="back" href="../">← Back to the map</a>
+      <div class="count" id="count"></div>
+    </div>
+
+    <!-- Link cards -->
+    <div class="grid" id="links">
+
+        <a class="card" href="https://arxiv.org/pdf/2211.04488" target="_blank" rel="noopener">
+  <div class="meta"><span>arxiv.org</span><span class="dot"></span><span>Paper • 2025</span></div>
+  <h3>DEBLENDING GALAXIES WITH GENERATIVE ADVERSARIAL NETWORKS</h3>
+  <p class="desc">
+    Hemmati S., Huff E., et al. <em>Astrophysical Journal</em>, 2022.
+  </p>
+  <div class="tags">
+    <span class="tag">deep learning</span>
+    <span class="tag">super-resolution</span>
+    <span class="tag">astronomy</span>
+  </div>
+    </a>
+    <a class="card" href="https://arxiv.org/pdf/2504.07183" target="_blank" rel="noopener">
+  <div class="meta"><span>arxiv.org</span><span class="dot"></span><span>Paper • 2025</span></div>
+  <h3>Denoising Diffusion Probabilistic Model for realistic and fast generated Euclid-like data for
+weak lensing analysis</h3>
+  <p class="desc">
+    Scognamiglio, et al. <em>Astrophysical Journal</em>, 2025.
+  </p>
+  <div class="tags">
+    <span class="tag">deep learning</span>
+    <span class="tag">super-resolution</span>
+    <span class="tag">DDPM</span>
+  </div>
+    </a>
+        
+        <!-- Google Slides talk -->
+      <a class="card" href="https://docs.google.com/presentation/d/1rcng4v1qnnntVm7J8p3E-jwCPrcVBggmDnhi5iUtACU/edit?usp=sharing" target="_blank" rel="noopener">
+        <div class="meta"><span>docs.google.com</span><span class="dot"></span><span>Slides</span></div>
+        <h3>Talk: Applications of AI on Galaxies</h3>
+        <p class="desc">Broad Grouping of Ideas- Caltech 2023</p>
+        <div class="tags">
+          <span class="tag">Galaxies</span>
+          <span class="tag">DL</span>
+        </div>
+      </a>
+      <a class="card" href="https://docs.google.com/presentation/d/1SOsWa6CUjRnJN9gXbffE3AYQYSRe3kSc9dG-b9EX34M/edit?usp=sharing" target="_blank" rel="noopener">
+        <div class="meta"><span>docs.google.com</span><span class="dot"></span><span>Slides</span></div>
+        <h3>Talk: Image Enhancement with AI</h3>
+        <p class="desc">Review of DL architectures and some examples- Euclid US 2022</p>
+        <div class="tags">
+          <span class="tag">DL</span>
+          <span class="tag">Super Resolution</span>
+        </div>
+      </a>        
+
+    </div>
+  </div>
+
+<script>
+  // Show a simple count of items
+  const grid = document.getElementById('links');
+  const count = document.getElementById('count');
+  if (grid && count) count.textContent = grid.querySelectorAll('.card').length + " items";
+</script>
+</body>
+</html>
