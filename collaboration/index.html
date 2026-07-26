@@ -4,8 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#000000" />
-<title>Deep Learning</title>
-<meta name="description" content="Collaborations" />
+<title>Collaborations</title>
+<meta name="description" content="Collaborations — the people I work with." />
 <style>
   :root {
     --bg:#000; --fg:#fff; --muted:#bbb; --card:#0a0a0a; --stroke:#222;
@@ -85,7 +85,7 @@
   // Show a simple count of items
   const grid = document.getElementById('links');
   const count = document.getElementById('count');
-  if (grid && count) count.textContent = grid.querySelectorAll('.card').length + " items";
+  if (grid && count) { const n = grid.querySelectorAll('.card').length; count.textContent = n + (n === 1 ? " item" : " items"); }
 </script>
 </body>
 </html>

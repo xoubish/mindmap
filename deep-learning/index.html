@@ -157,7 +157,7 @@ weak lensing analysis</h3>
   // Show a simple count of items
   const grid = document.getElementById('links');
   const count = document.getElementById('count');
-  if (grid && count) count.textContent = grid.querySelectorAll('.card').length + " items";
+  if (grid && count) { const n = grid.querySelectorAll('.card').length; count.textContent = n + (n === 1 ? " item" : " items"); }
 </script>
 </body>
 </html>
