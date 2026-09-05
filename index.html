@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Shoubaneh Hemmati</title>
+<meta name="description" content="Shoubaneh Hemmati, astrophysicist at Caltech/IPAC. Research on cosmological surveys and machine learning for astronomical data; talks, papers, and an interactive map of ideas." />
+<meta name="author" content="Shoubaneh Hemmati" />
+<meta name="theme-color" content="#ffffff" />
+<link rel="canonical" href="https://xoubish.github.io/mindmap/" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='black'/%3E%3Ccircle cx='10' cy='11' r='4' fill='%23d5427e'/%3E%3Ccircle cx='21' cy='8' r='3' fill='%235470f0'/%3E%3Ccircle cx='23' cy='20' r='4' fill='%23f0a13b'/%3E%3Ccircle cx='11' cy='23' r='3' fill='%2321c7a8'/%3E%3Ccircle cx='17' cy='15' r='2' fill='%23b25df0'/%3E%3C/svg%3E" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Shoubaneh Hemmati" />
+<meta property="og:description" content="Astrophysicist at Caltech/IPAC. Cosmological surveys, machine learning for astronomical data, talks and papers." />
+<meta property="og:url" content="https://xoubish.github.io/mindmap/" />
+<meta property="og:image" content="https://xoubish.github.io/mindmap/assets/og-preview.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://xoubish.github.io/mindmap/assets/og-preview.png" />
+<style>
+  /* Light, restrained palette. To go back to dark, swap these tokens. */
+  :root {
+    --bg:#ffffff; --fg:#111827; --muted:#4b5563; --dim:#9ca3af;
+    --rule:#e5e7eb; --stroke:#e5e7eb; --stroke-hi:#9ca3af; --card:#ffffff; --accent:#1f4e99;
+    --pad: clamp(16px, 3vw, 28px);
+    --title: clamp(28px, 5vw, 40px);
+    --h2: clamp(17px, 3vw, 20px);
+    --body: clamp(14px, 2.6vw, 16px);
+    --small: clamp(12px, 2.4vw, 13.5px);
+  }
+  html, body { background: var(--bg); color: var(--fg); margin: 0;
+               font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+               -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .container { max-width: 960px; margin: 0 auto; padding: var(--pad); padding-bottom: clamp(28px, 6vh, 72px); }
+
+  /* Top nav */
+  .nav { display: flex; gap: 22px; justify-content: flex-end; margin: 6px 0 26px; font-size: var(--small); }
+  .nav a { text-decoration: none; color: var(--muted); padding-bottom: 3px; border-bottom: 1px solid transparent; }
+  .nav a:hover { color: var(--fg); }
+  .nav a.current { color: var(--fg); font-weight: 600; border-bottom-color: var(--fg); }
+
+  /* Hero */
+  .hero { display: grid; grid-template-columns: 1fr; gap: clamp(24px, 4vw, 36px); margin-bottom: clamp(30px, 5vw, 52px); }
+  /* Intro: portrait beside the name on wider screens, stacked on phones */
+  .intro { display: grid; grid-template-columns: 1fr; gap: 18px; }
+  @media (min-width: 640px) { .intro { grid-template-columns: auto 1fr; gap: 30px; align-items: start; } }
+  .avatar { display: block; width: clamp(104px, 12vw, 150px); height: clamp(104px, 12vw, 150px); border-radius: 50%;
+            object-fit: cover; border: 1px solid var(--rule); margin: 0; }
+  @media (min-width: 640px) { .avatar { margin-top: 4px; } }
+  h1 { font-size: var(--title); font-weight: 600; margin: 0 0 4px; line-height: 1.15; letter-spacing: -0.01em; }
+  .role { font-size: clamp(16px, 2.8vw, 18px); font-weight: 500; margin: 0 0 14px; }
+  .bio { color: var(--muted); font-size: var(--body); line-height: 1.65; margin: 0 0 16px; max-width: 68ch; }
+  .links { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: var(--small); }
+  .links a { color: var(--fg); text-decoration: underline; text-decoration-color: var(--dim); text-underline-offset: 3px; }
+  .links a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+
+  .mapcard { display: block; text-decoration: none; color: var(--fg); background: var(--card);
+             border: 1px solid var(--stroke); border-radius: 10px; overflow: hidden;
+             transition: border-color .15s ease; }
+  .mapcard:hover { border-color: var(--stroke-hi); }
+  .mapcard img { display: block; width: 100%; height: auto; max-height: 85vh; object-fit: contain; background: #000; }
+  .mapcap { display: grid; grid-template-columns: 1fr; gap: 4px 28px; padding: 14px 16px 15px; border-top: 1px solid var(--stroke); }
+  @media (min-width: 720px) { .mapcap { grid-template-columns: auto 1fr; align-items: baseline; } }
+  .mapcap .kicker { display: block; color: var(--dim); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 2px; }
+  .mapcap strong { display: block; font-size: var(--body); font-weight: 600; white-space: nowrap; }
+  .mapcap span.desc { display: block; color: var(--muted); font-size: var(--small); line-height: 1.5; }
+  @media (min-width: 720px) { .mapcap .head { grid-row: 1; } .mapcap span.desc { grid-row: 1; grid-column: 2; } }
+
+  /* Sections */
+  section { margin-bottom: clamp(28px, 4vw, 44px); }
+  .sec-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+              border-bottom: 1px solid var(--rule); padding-bottom: 8px; margin-bottom: 4px; }
+  h2 { font-size: var(--h2); font-weight: 600; margin: 0; }
+  .more { color: var(--muted); text-decoration: none; font-size: var(--small); white-space: nowrap; }
+  .more:hover { color: var(--accent); }
+  .more-group { display: flex; gap: 16px; flex-wrap: wrap; justify-content: flex-end; }
+
+  .research { margin: 12px 0 0; padding: 0 0 0 1.1em; color: var(--muted); font-size: var(--body); line-height: 1.65; }
+  .research li { margin: 4px 0; }
+  .research strong { color: var(--fg); font-weight: 500; }
+  .research a { color: var(--fg); text-decoration: underline; text-decoration-color: var(--dim); text-underline-offset: 3px; }
+  .research a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+
+  .row { display: grid; grid-template-columns: 3.4em 1fr; gap: 12px; padding: 12px 0;
+         border-bottom: 1px solid var(--rule); text-decoration: none; color: var(--fg); }
+  .row:last-child { border-bottom: 0; }
+  .year { color: var(--dim); font-size: var(--small); padding-top: 2px; font-variant-numeric: tabular-nums; }
+  .title { display: block; font-size: var(--body); font-weight: 500; line-height: 1.4; }
+  .row:hover .title { color: var(--accent); }
+  .meta { display: block; color: var(--muted); font-size: var(--small); margin-top: 3px; line-height: 1.5; }
+  .meta em { font-style: italic; }
+  .meta a { color: var(--fg); text-decoration: underline; text-decoration-color: var(--dim); text-underline-offset: 3px; }
+  .meta a:hover { color: var(--accent); }
+
+  footer { color: var(--dim); font-size: var(--small); text-align: center; margin-top: clamp(24px, 4vw, 44px); line-height: 1.6;
+           border-top: 1px solid var(--rule); padding-top: 18px; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+  <div class="container">
+
+    <nav class="nav" aria-label="Site">
+      <a class="current" href="./" aria-current="page">Home</a>
+      <a href="map/">Map</a>
+    </nav>
+
+    <header class="hero">
+      <div class="intro">
+        <img class="avatar" src="assets/portrait.jpg" width="480" height="480" alt="Portrait of Shoubaneh Hemmati" />
+        <div class="intro-text">
+        <h1>Shoubaneh Hemmati</h1>
+        <p class="role">Astrophysicist at Caltech/IPAC</p>
+        <p class="bio">
+          I work on cosmological galaxy surveys and on machine learning for astronomical data.
+          At IPAC I support the Euclid mission through the Euclid NASA Science Center, and my research
+          applies deep learning to survey imaging: deblending, super-resolution, generative models,
+          and self-supervised foundation models spanning Euclid, Rubin, and Roman.
+        </p>
+        <div class="links">
+          <a href="https://scholar.google.com/citations?hl=en&user=YG4hGbsAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+          <a href="https://github.com/xoubish" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/shooby/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:shemmati@caltech.edu">shemmati@caltech.edu</a>
+        </div>
+        </div>
+      </div>
+
+      <a class="mapcard" href="map/">
+        <img src="assets/map-hero.jpg" width="2400" height="1726"
+             alt="Map of 6,000+ conversations, clustered and labeled by topic" />
+        <div class="mapcap">
+          <span class="head">
+            <span class="kicker">Side project &middot; Interactive</span>
+            <strong>Explore the mind map &rarr;</strong>
+          </span>
+          <span class="desc">An embedding of 6,000+ of my conversations with ChatGPT, clustered and labeled by topic
+                using sentence transformers, UMAP, and k-means. Personal and professional threads on one map.</span>
+        </div>
+      </a>
+    </header>
+
+    <main>
+
+      <section id="research">
+        <div class="sec-head">
+          <h2>Research</h2>
+        </div>
+        <ul class="research">
+          <li><strong>AGN variability and changing-look AGN.</strong> Data-driven, low-dimensional representations of
+            multiwavelength light curves from ZTF, Pan-STARRS, Gaia, and WISE/NEOWISE that organize AGN classes, separate
+            turn-on from turn-off changing-look AGN, and track spectroscopic and host-galaxy properties.
+            Latest paper: <a href="https://iopscience.iop.org/article/10.3847/1538-4357/ae38b8" target="_blank" rel="noopener">Reducing
+            the Dimensions of AGN Light-curve Manifolds</a> (Hemmati et al. 2026, <em>ApJ</em> 998, 130)
+            &middot; <a href="https://xoubish.github.io/CLAGN/" target="_blank" rel="noopener">CLAGN Night Sheet</a>, an interactive companion page.</li>
+          <li><strong>Cosmological surveys.</strong> Euclid, with contributions to Roman and SPHEREx; survey data processing and science support at IPAC.</li>
+          <li><strong>Machine learning for astronomical imaging.</strong> Deblending, super-resolution, diffusion models, and self-supervised foundation models across Euclid, Rubin, and Roman.</li>
+          <li><strong>Manifold learning and dimensionality reduction.</strong> Self-organizing maps and related methods for galaxy populations, scaling relations, and SED fitting.</li>
+          <li><strong>Galaxy formation and evolution</strong> from multi-wavelength survey data.</li>
+        </ul>
+      </section>
+
+      <section id="talks">
+        <div class="sec-head">
+          <h2>Selected talks</h2>
+          <span class="more-group">
+            <a class="more" href="deep-learning/">Machine &amp; deep learning &rarr;</a>
+            <a class="more" href="ai-philosophy/">AI &amp; philosophy &rarr;</a>
+          </span>
+        </div>
+
+        <a class="row" href="deep-learning/SHemmati_roman2026.pdf" target="_blank" rel="noopener">
+          <span class="year">2026</span>
+          <span>
+            <span class="title">JAISP: A Joint Rubin&ndash;Euclid Foundation Model</span>
+            <span class="meta">Self-supervised detection and astrometry across surveys, with a path to Roman. Roman conference, July 2026 &middot; PDF</span>
+          </span>
+        </a>
+        <a class="row" href="https://xoubish.github.io/GISS2026/final/#opening" target="_blank" rel="noopener">
+          <span class="year">2026</span>
+          <span>
+            <span class="title">Sisyphus Optimizing in a Dynamic Universe</span>
+            <span class="meta">Inference, optimization, and information through the myth of Sisyphus. GISS 2026 &middot; Slides</span>
+          </span>
+        </a>
+        <a class="row" href="https://docs.google.com/presentation/d/1yq-BPzjyNREl0nQPpeEVZfNSZObu23W0VS68r3FqEiE/edit?usp=sharing" target="_blank" rel="noopener">
+          <span class="year">2025</span>
+          <span>
+            <span class="title">How I Learned to Stop Worrying and Love the Embedding</span>
+            <span class="meta">Manifold learning and embeddings in practice. Caltech/IPAC &middot; Slides</span>
+          </span>
+        </a>
+        <a class="row" href="https://docs.google.com/presentation/d/1N07IUGc6YJopTWUFEDC4fP81UqrvEvEFsitPyWVIenU/edit?usp=sharing" target="_blank" rel="noopener">
+          <span class="year">2024</span>
+          <span>
+            <span class="title">The Black Boxes</span>
+            <span class="meta">On the &ldquo;black box&rdquo; framing of AI systems. Caltech/IPAC &middot; Slides</span>
+          </span>
+        </a>
+        <a class="row" href="https://docs.google.com/presentation/d/1rcng4v1qnnntVm7J8p3E-jwCPrcVBggmDnhi5iUtACU/edit?usp=sharing" target="_blank" rel="noopener">
+          <span class="year">2023</span>
+          <span>
+            <span class="title">Applications of AI on Galaxies</span>
+            <span class="meta">An overview of deep-learning applications in galaxy studies. Caltech &middot; Slides</span>
+          </span>
+        </a>
+        <a class="row" href="https://docs.google.com/presentation/d/1SOsWa6CUjRnJN9gXbffE3AYQYSRe3kSc9dG-b9EX34M/edit?usp=sharing" target="_blank" rel="noopener">
+          <span class="year">2022</span>
+          <span>
+            <span class="title">Image Enhancement with AI</span>
+            <span class="meta">A review of deep-learning architectures for image enhancement, with examples. Euclid US meeting &middot; Slides</span>
+          </span>
+        </a>
+      </section>
+
+    </main>
+
+    <footer>
+      <a href="map/">Mind map</a> &middot;
+      <a href="https://github.com/xoubish/mindmap" target="_blank" rel="noopener">Site source</a> &middot;
+      <a href="https://github.com/xoubish/Miduction/tree/main/me" target="_blank" rel="noopener">Map pipeline</a>
+    </footer>
+  </div>
+</body>
+</html>

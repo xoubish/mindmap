@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="theme-color" content="#000000" />
+<meta name="theme-color" content="#ffffff" />
 <title>AI Philosophy</title>
 <meta name="description" content="Selected talks, essays, and resources." />
 <style>
   :root {
-    --bg:#000; --fg:#fff; --muted:#bbb; --card:#0a0a0a; --stroke:#222;
+    --bg:#ffffff; --fg:#111827; --muted:#4b5563; --card:#ffffff; --stroke:#e5e7eb;
     --pad: clamp(14px, 3vw, 28px);
     --title: clamp(24px, 5vw, 44px);
     --h3: clamp(16px, 3.2vw, 20px);
@@ -22,8 +22,10 @@
   header p  { color: var(--muted); font-size: var(--body); margin: 6px 0 0; }
 
   .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 16px 0 18px; }
-  .back { text-decoration: none; color: #fff; border: 1px solid #fff; padding: 8px 12px; border-radius: 10px; }
+  .back { text-decoration: none; color: #111827; border: 1px solid #d1d5db; padding: 8px 12px; border-radius: 8px; font-size: var(--body); }
+  .back:hover { border-color: #6b7280; }
   .count { color: var(--muted); font-size: var(--body); }
+  .nav { display:flex; gap:8px; }
 
   .grid {
     display: grid;
@@ -40,13 +42,13 @@
     color: var(--fg);
     transition: transform .12s ease, border-color .12s ease;
   }
-  .card:hover { transform: translateY(-1px); border-color: #444; }
+  .card:hover { transform: translateY(-1px); border-color: #9ca3af; }
   .meta { display:flex; gap:10px; align-items:center; color: var(--muted); font-size: var(--tag); margin-bottom: 6px; }
-  .dot { width:6px; height:6px; border-radius:50%; background:#666; display:inline-block; }
+  .dot { width:6px; height:6px; border-radius:50%; background:#9ca3af; display:inline-block; }
   h3 { font-size: var(--h3); margin: 4px 0 6px; }
   p.desc { color: var(--muted); font-size: var(--body); margin: 0 0 8px; line-height: 1.5; }
   .tags { display:flex; flex-wrap: wrap; gap:6px; }
-  .tag { border: 1px solid #333; color:#ddd; padding: 3px 8px; border-radius: 999px; font-size: var(--tag); }
+  .tag { border: 1px solid #d1d5db; color:#374151; padding: 3px 8px; border-radius: 999px; font-size: var(--tag); }
 
   @media (max-width: 600px) {
     .grid { gap: 10px; }
@@ -61,8 +63,10 @@
     </header>
 
     <div class="toolbar">
-      <!-- Back to your map; "../" works for project sites -->
-      <a class="back" href="../">← Back to the map</a>
+      <nav class="nav" aria-label="Site">
+        <a class="back" href="../">← Home</a>
+        <a class="back" href="../map/">Map</a>
+      </nav>
       <div class="count" id="count"></div>
     </div>
 
