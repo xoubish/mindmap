@@ -96,16 +96,16 @@
 
   /* Side projects: a small visual accent within the academic homepage. */
   .project-card { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 24px;
-                  align-items: center; margin-top: 16px; padding: 20px; border: 1px solid #e3e0d7;
-                  border-radius: 10px; background: #faf8f2; color: var(--fg); text-decoration: none;
+                  align-items: center; margin-top: 16px; padding: 20px; border: 1px solid #253744;
+                  border-radius: 6px; background: #0e1821; color: #e6eef4; text-decoration: none;
                   transition: border-color .15s ease; }
-  .project-card:hover { border-color: #8b9b88; }
+  .project-card:hover { border-color: #6f9eb6; }
   .project-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
   .project-art { display: block; width: 100%; height: auto; border-radius: 4px; }
-  .project-kicker { display: block; color: #626a5c; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; }
-  .project-title { margin: 5px 0 8px; color: #6f293f; font: 600 28px/1.1 Georgia, serif; letter-spacing: -.5px; }
-  .project-description { margin: 0; color: var(--muted); font-size: var(--small); line-height: 1.65; max-width: 66ch; }
-  .project-link { display: inline-block; margin-top: 12px; color: #6f293f; font-size: var(--small);
+  .project-kicker { display: block; color: #9db4c3; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; }
+  .project-title { margin: 5px 0 8px; color: #e6eef4; font: 600 24px/1.25 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; letter-spacing: -.3px; }
+  .project-description { margin: 0; color: #b6c6d2; font-size: var(--small); line-height: 1.65; max-width: 66ch; }
+  .project-link { display: inline-block; margin-top: 12px; color: #9ad9f5; font-size: var(--small);
                   font-weight: 500; text-decoration: underline; text-underline-offset: 4px; }
   @media (max-width: 600px) {
     .project-card { grid-template-columns: minmax(0, 1fr); gap: 18px; padding: 18px; }
@@ -207,30 +207,30 @@
         </div>
         <a class="project-card" href="https://xoubish.github.io/fantasy/" target="_blank" rel="noopener">
           <svg class="project-art" viewBox="0 0 240 160" fill="none" aria-hidden="true" focusable="false">
-            <rect width="240" height="160" fill="#294f43"/>
-            <text x="18" y="31" fill="#f4f0e7" font-family="Georgia, serif" font-size="23" font-weight="600">Touchline.</text>
+            <rect width="240" height="160" fill="#123c2b"/>
+            <text x="18" y="29" fill="#e6eef4" font-family="Arial, sans-serif" font-size="15" font-weight="600">PL FANTASY PREDICTOR</text>
             <g stroke="#8da08c" stroke-width="1" opacity=".65">
               <path d="M18 48H222V145H18ZM120 48V145M18 72H45V121H18M222 72H195V121H222"/>
               <circle cx="120" cy="96.5" r="21"/>
             </g>
-            <path d="M63 118 104 71 162 111 200 96" stroke="#e5e6a3" stroke-dasharray="4 4" opacity=".7"/>
-            <g fill="#f4f0e7" stroke="#294f43" stroke-width="2">
+            <path d="M63 118 104 71 162 111 200 96" stroke="#e1eb8a" stroke-dasharray="4 4" opacity=".7"/>
+            <g fill="#e6eef4" stroke="#123c2b" stroke-width="2">
               <circle cx="34" cy="96" r="6"/>
               <circle cx="63" cy="72" r="6"/><circle cx="63" cy="96" r="6"/><circle cx="63" cy="118" r="6"/>
               <circle cx="104" cy="71" r="6"/><circle cx="103" cy="120" r="6"/>
               <circle cx="144" cy="76" r="6"/><circle cx="162" cy="111" r="6"/>
               <circle cx="185" cy="66" r="6"/><circle cx="193" cy="132" r="6"/>
             </g>
-            <circle cx="200" cy="96" r="9" fill="#e5e6a3"/>
-            <text x="200" y="99.5" text-anchor="middle" fill="#294f43" font-family="Arial, sans-serif" font-size="10" font-weight="700">C</text>
+            <circle cx="200" cy="96" r="9" fill="#e1eb8a"/>
+            <text x="200" y="99.5" text-anchor="middle" fill="#123c2b" font-family="Arial, sans-serif" font-size="10" font-weight="700">C</text>
           </svg>
           <div>
             <span class="project-kicker">Football &middot; Forecasting</span>
-            <h3 class="project-title">Touchline</h3>
-            <p class="project-description">Putting a football hunch to the test. A fantasy Premier League predictor with
-              player forecasts, six squad-building approaches, and transfer plans. Historical backtests sit alongside
-              the picks, so you can see how the model actually does.</p>
-            <span class="project-link">Explore Touchline &rarr;</span>
+            <h3 class="project-title">PL Fantasy Predictor</h3>
+            <p class="project-description">A Premier League fantasy football model with player forecasts, transfer planning, and a squad
+              shuffler that finds different teams above a predicted-points target. Includes historical backtests
+              and comparisons with simple baselines.</p>
+            <span class="project-link">Open PL Fantasy Predictor &rarr;</span>
           </div>
         </a>
       </section>
