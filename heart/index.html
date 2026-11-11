@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heart Data &amp; Flow</title>
+  <style>
+    :root {
+      --bg: #0b1120;
+      --card: #152033;
+      --border: #293850;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --green: #4ade80;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 20px 16px 40px;
+      line-height: 1.5;
+    }
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0 4px;
+    }
+    .hdr-left {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+    .back-link {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .back-link:hover {
+      color: var(--accent);
+    }
+    h1 {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .video-box {
+      background: #0d1422;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #0d1422;
+    }
+    .bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: var(--card);
+      border-top: 1px solid var(--border);
+    }
+    .jumps, .speed {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+    button {
+      background: #1e2d45;
+      color: var(--text);
+      border: 1px solid #334868;
+      border-radius: 7px;
+      padding: 6px 12px;
+      font-size: 12.5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    button:hover {
+      background: #293d5c;
+      border-color: var(--accent);
+    }
+    button.active {
+      background: var(--accent);
+      color: #0b1120;
+      border-color: var(--accent);
+      font-weight: 600;
+    }
+    button.sound-on {
+      background: var(--green);
+      color: #0b1120;
+      border-color: var(--green);
+      font-weight: 600;
+    }
+    .xray-pair {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 16px;
+    }
+    .xray-card {
+      background: #0d1422;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+    .xray-hdr {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 14px;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .xray-sub {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="hdr-left">
+        <a class="back-link" href="../">&larr; Home</a>
+        <h1>Heart Data &amp; Flow</h1>
+      </div>
+      <button id="soundBtn" onclick="toggleSound()">&#128263; Tap for Sound</button>
+    </header>
+
+    <div class="video-box">
+      <video id="vid" src="heart_stents.mp4" autoplay loop muted playsinline controls></video>
+      <div class="bar">
+        <div class="jumps">
+          <button onclick="jump(0)">1. Before</button>
+          <button onclick="jump(4.6)">2. Stent 1</button>
+          <button onclick="jump(9.9)">3. Stent 2</button>
+          <button onclick="jump(15.3)">4. After</button>
+        </div>
+        <div class="speed">
+          <button id="playBtn" onclick="togglePlay()">Pause</button>
+          <button id="spSlow" onclick="setRate(0.5)">0.5x</button>
+          <button id="spNorm" class="active" onclick="setRate(1.0)">1x</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="xray-pair">
+      <div class="xray-card">
+        <div class="xray-hdr">
+          <span>1 &middot; Stent 1</span>
+          <span class="xray-sub">Before &rarr; After</span>
+        </div>
+        <video id="v1" src="stent1.mp4" autoplay loop muted playsinline controls></video>
+      </div>
+      <div class="xray-card">
+        <div class="xray-hdr">
+          <span>2 &middot; Stent 2</span>
+          <span class="xray-sub">Before &rarr; After</span>
+        </div>
+        <video id="v2" src="stent2.mp4" autoplay loop muted playsinline controls></video>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const vid = document.getElementById('vid');
+    const playBtn = document.getElementById('playBtn');
+    const soundBtn = document.getElementById('soundBtn');
+
+    function updateSoundBtn() {
+      if (!vid.muted) {
+        soundBtn.innerHTML = '&#128266; Sound: ON';
+        soundBtn.classList.add('sound-on');
+      } else {
+        soundBtn.innerHTML = '&#128263; Sound: OFF (Tap for Sound)';
+        soundBtn.classList.remove('sound-on');
+      }
+    }
+
+    function toggleSound() {
+      vid.muted = !vid.muted;
+      if (!vid.muted) vid.play();
+      updateSoundBtn();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      vid.muted = false;
+      vid.play().then(updateSoundBtn).catch(() => {
+        vid.muted = true;
+        vid.play();
+        updateSoundBtn();
+      });
+    });
+
+    document.addEventListener('click', function unlockAudio(e) {
+      if (e.target !== soundBtn && vid.muted) {
+        vid.muted = false;
+        vid.play();
+        updateSoundBtn();
+      }
+      document.removeEventListener('click', unlockAudio);
+    });
+
+    function jump(sec) {
+      vid.currentTime = sec;
+      vid.play();
+    }
+
+    function togglePlay() {
+      if (vid.paused) {
+        vid.play();
+      } else {
+        vid.pause();
+      }
+    }
+
+    function setRate(r) {
+      vid.playbackRate = r;
+      document.getElementById('spSlow').classList.toggle('active', r === 0.5);
+      document.getElementById('spNorm').classList.toggle('active', r === 1.0);
+    }
+
+    vid.addEventListener('play', () => { playBtn.textContent = 'Pause'; });
+    vid.addEventListener('pause', () => { playBtn.textContent = 'Play'; });
+    vid.addEventListener('volumechange', updateSoundBtn);
+  </script>
+</body>
+</html>
